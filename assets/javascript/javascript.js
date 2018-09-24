@@ -11,9 +11,10 @@ $("button").on("click", function getGif(){
     var dog = $(this).text;
 
     //create link to query
+    //something about this is not working. I am getting GIFs but dog is not working
     var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + dog + "&api_key=skroQi8RIIYW717TOet3Fnqg1j33oYuY&limit=10";
 
-    //define AJAX request -- I'm getting an error that this is not a function?
+    //define AJAX request
     $.ajax({
         url: queryURL,
         method: "GET"
