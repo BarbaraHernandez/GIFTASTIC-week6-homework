@@ -11,14 +11,14 @@ $(document).ready(function(){
 
         for (i=0; i < topics.length; i++){
             dogBreed = topics[i];
-            $("#button-bar").append("<button>" + dogBreed + "</button>");
+            $("#button-bar").append("<button class='dog-button'>" + dogBreed + "</button>");
         }
     }
 
     createButtons();
 
     //event listener to pull GIFs 
-    $("button").on("click", function getGif(){
+    $(document).on("click", ".dog-button", function getGif(){
 
         console.log("clicked a button");
 
