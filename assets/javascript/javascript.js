@@ -46,6 +46,7 @@ $(document).ready(function(){
                     var gifDiv = $("<div>");
                     var rating = $("<p>").text("Rating: " + results[i].rating);
                     var dogGif = $("<img>");
+                    dogGif.attr("class", "gif");
                     dogGif.attr("data-still", results[i].images.fixed_height_small_still.url);
                     dogGif.attr("data-animate", results[i].images.fixed_height_small.url);
                     dogGif.attr("src", results[i].images.fixed_height_small_still.url);//load still gif by default
@@ -59,17 +60,15 @@ $(document).ready(function(){
         
     });
 
-    $(".gif").on("click", function() { //not working at all
+    $(document).on("click", ".gif", function() {
         console.log("clicked a gif");
         var state = $(this).attr("data-state");
         if (state === "still") {
-        $(this).attr("src", $(this).attr("data-animate").val());
-        $(this).attr("data-state", "animate");
-        console.log("src: " + $(this).src);
-        console.log("still: " + stillURL);
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
         } else {
-        $(this).attr("src", $(this).attr("data-still"));
-        $(this).attr("data-state", "still");
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
         }
     });
 
